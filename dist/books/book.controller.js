@@ -12,12 +12,12 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UsersController = void 0;
+exports.BooksController = void 0;
 const common_1 = require("@nestjs/common");
 const swagger_1 = require("@nestjs/swagger");
-let UsersController = class UsersController {
-    findAll() {
-        return 'Leonardo';
+let BooksController = class BooksController {
+    find() {
+        return 'Books';
     }
     findOne(id) {
         return id;
@@ -25,31 +25,42 @@ let UsersController = class UsersController {
     create(payload) {
         return payload;
     }
+    update(id, payload) {
+        return { id, body: payload };
+    }
 };
-exports.UsersController = UsersController;
+exports.BooksController = BooksController;
 __decorate([
-    (0, swagger_1.ApiOperation)({ description: 'Biblioteca 2', summary: 'Metodo get' }),
+    (0, swagger_1.ApiOperation)({ description: 'Traer', summary: 'Metodo get de traer' }),
     (0, common_1.Get)(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", void 0)
-], UsersController.prototype, "findAll", null);
+], BooksController.prototype, "find", null);
 __decorate([
     (0, common_1.Get)(':id'),
     __param(0, (0, common_1.Param)('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
-], UsersController.prototype, "findOne", null);
+], BooksController.prototype, "findOne", null);
 __decorate([
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [Object]),
     __metadata("design:returntype", void 0)
-], UsersController.prototype, "create", null);
-exports.UsersController = UsersController = __decorate([
-    (0, swagger_1.ApiTags)('Bibliografia'),
-    (0, common_1.Controller)('users')
-], UsersController);
-//# sourceMappingURL=users.controller.js.map
+], BooksController.prototype, "create", null);
+__decorate([
+    (0, common_1.Put)(':id'),
+    __param(0, (0, common_1.Param)('id')),
+    __param(1, (0, common_1.Body)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Number, Object]),
+    __metadata("design:returntype", void 0)
+], BooksController.prototype, "update", null);
+exports.BooksController = BooksController = __decorate([
+    (0, swagger_1.ApiTags)('Books'),
+    (0, common_1.Controller)('books')
+], BooksController);
+//# sourceMappingURL=book.controller.js.map
